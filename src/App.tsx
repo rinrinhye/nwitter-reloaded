@@ -59,14 +59,12 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-  // const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
 
   const init = async () => {
-    console.log(auth.currentUser + '1번');
     await auth.authStateReady();
-    console.log(`${auth.currentUser} + 2번`);
 
-    // setLoading(false);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -76,12 +74,12 @@ function App() {
   return (
     <Wrapper>
       <GlobalStyles />
-      <RouterProvider router={router}></RouterProvider>
-      {/* {isLoading ? (
+      {/* <RouterProvider router={router}></RouterProvider> */}
+      {isLoading ? (
         <LoadingScreen />
       ) : (
         <RouterProvider router={router}></RouterProvider>
-      )} */}
+      )}
     </Wrapper>
   );
 }
